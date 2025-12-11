@@ -44,8 +44,7 @@ int main() {
     // ciclo su tutte le email
     for (int i = 0; i < N; i++) {
         string email = emails[i]; //email corrente
-
-        //TODO: rimuovere la parte dopo la chiocciola
+        email.erase(email.find("@"), email.size());
 
         // TODO: spezzare la stringa in due parti diverse: nome e cognome (utilizzare il punto come criterio per separare)
 
