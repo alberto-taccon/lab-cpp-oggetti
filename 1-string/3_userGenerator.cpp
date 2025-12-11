@@ -5,7 +5,7 @@
  *  e implementare le due funzioni usernameGenerator                       *
  **************************************************************************/
 
- #include <iostream>
+#include <iostream>
 #include <string>
 #include <cctype>
 
@@ -19,26 +19,26 @@ string minuscolo(string s){
     return s;
 }
 
+
+string usernameGenerator(string nome, string cognome){
 /*
     TODO: Implementare la funzione affinchè, a partire da 2 stringhe nome e cognome
           generi in output una stringa contenente uno username utente nella forma:
           prima lettera del nome + tutto il cognome (tutto minuscolo)
 */
-string usernameGenerator(string nome, string cognome){
-    return "da implementare";
+    string nome2=nome.substr(0,1);
+    string cognome2=minuscolo(cognome);
+    string username=nome2.insert(nome2.size(), cognome2);
+    return username;
 }
 
-/*
-    TODO: Implementare la funzione affinchè, a partire da 1 stringa nella forma "Nome Cognome"
-          generi in output una stringa contenente uno username utente nella forma:
-          prima lettera del nome + tutto il cognome (tutto minuscolo)
-    
-    Hint: rispetto alla funzione precedente, splittare (spezzare il nome dal cognome, basandosi sullo spazio)
-          e ripetere la stessa logica. E' possibile anche evitare di ripetere la logica? Magari chiamando la stessa funzione sopra?
 
-*/
 string usernameGenerator(string nomeCognome){
-    return "da implementare";
+    string nome = nomeCognome.substr(0, 1);
+    string cognome = nomeCognome.substr(5, nomeCognome.size());
+    cognome=minuscolo(cognome);
+    string username = nome.insert(nome.size(), cognome);
+    return username;
 }
 
 // main con testing
@@ -53,9 +53,8 @@ int main()
     string username1 = usernameGenerator(nome, cognome);
 
     string username2 = usernameGenerator(nomeCognome);
-
-    cout << "Primo utente: " << nome << " " << cognome << ". Username: " << username1;
-    cout << "Secondo utente: " << nomeCognome << ". Username: " << username2;
+    cout << "Primo utente: " << nome << " " << cognome << ". Username: " << username1 << endl;
+    cout << "Secondo utente: " << nomeCognome << ". Username: " << username2 << endl;
 
     return 0;
 }
