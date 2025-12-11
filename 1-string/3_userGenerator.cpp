@@ -34,13 +34,11 @@ string usernameGenerator(string nome, string cognome){
 
 
 string usernameGenerator(string nomeCognome){
-    string nome = nomeCognome.substr(0, 1);
+    string nome = nomeCognome.substr(0, 3);
     string cognome = nomeCognome.substr(5, nomeCognome.size());
-    cognome=minuscolo(cognome);
-    string username = nome.insert(nome.size(), cognome);
-    return username;
+    return usernameGenerator(nome, cognome);
 }
-
+ 
 // main con testing
 int main()
 {
